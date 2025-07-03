@@ -44,3 +44,18 @@ void Chip8::LoadROM(char const* filename){
 		delete[] buffer;
 	}
 }
+
+Chip8::Chip8(){
+	pc = 0x200;
+	index = 0;
+	sp = 0;
+	delayTimer = 0;
+	soundTimer = 0;
+	opcode = 0;
+
+	std::memset(memory,0,sizeof(memory));
+	std::memset(registers, 0 , sizeof(registers));
+	std::memset(stack, 0, sizeof(stack));
+	std::memset(keypad, 0, sizeof(keypad));
+    std::memset(video, 0, sizeof(video));
+}
