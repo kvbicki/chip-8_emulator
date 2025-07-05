@@ -96,3 +96,9 @@ void Chip8::OP_5xy0(){
 
 	if (registers[Vx] == registers[Vy]) pc +=2;
 }
+void Chip8::OP_6xkk(){
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	u_int8_t kk = (opcode & 0x00FFu);
+
+	registers[Vx] = kk;
+}

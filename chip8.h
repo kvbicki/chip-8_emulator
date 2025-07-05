@@ -35,4 +35,5 @@ public:
 	void OP_3xkk();
 	void OP_4xkk();
 	void OP_5xy0();
+	void OP_6xkk();
 };
