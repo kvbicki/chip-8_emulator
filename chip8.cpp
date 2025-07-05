@@ -45,13 +45,16 @@ void Chip8::LoadROM(char const* filename){
 	}
 }
 
-Chip8::Chip8(){
+Chip8::Chip8()
+	: randGen(std::chrono::system_clock::now().time_since_epoch().count())
+{
 	pc = STARTING_ROM;
 	index = 0;
 	sp = 0;
 	delayTimer = 0;
 	soundTimer = 0;
 	opcode = 0;
+	randByte = std::uniform_int_distribution<uint8_t>(0, 255U);
 
 	std::memset(memory,0,sizeof(memory));
 	std::memset(registers, 0 , sizeof(registers));
@@ -205,4 +208,10 @@ void Chip8::OP_Annn(){
 void Chip8::OP_Bnnn(){
 	u_int16_t nnn = (opcode & 0x0FFFu);
 	pc = nnn + registers[0];
+}
+void Chip8::OP_Cxkk(){
+	u_int8_t kk = (opcode & 0x00FFu);
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+
+	registers[Vx] = kk & randByte(randGen);
 }
