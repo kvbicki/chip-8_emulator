@@ -64,8 +64,14 @@ void Chip8::OP_00E0(){
 	// Clear the display
 	std::memset(video,0,sizeof(video));
 }
-void Chip::OP_00EE(){
+
+void Chip8::OP_00EE(){
 	sp--;
 	pc = stack[sp];
+}
+
+void Chip8::OP_1nnn(){
+	u_int16_t nnn = opcode & 0x0FFFu;
+	pc = nnn;
 }
 
