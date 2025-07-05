@@ -87,6 +87,12 @@ void Chip8::OP_3xkk(){
 }
 void Chip8::OP_4xkk(){
 	u_int8_t kk = opcode & 0x00FFu;
-	u_int8_t Vx = (opcode &0x0F00u) >> 8u;
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
 	if(registers[Vx] != kk) pc+=2;
+}
+void Chip8::OP_5xy0(){
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	u_int8_t Vy = (opcode & 0x00F0u) >> 4u;
+
+	if (registers[Vx] == registers[Vy]) pc +=2;
 }

@@ -34,4 +34,5 @@ public:
 	void OP_2nnn();
 	void OP_3xkk();
 	void OP_4xkk();
+	void OP_5xy0();
 };
