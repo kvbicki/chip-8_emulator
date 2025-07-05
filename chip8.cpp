@@ -215,3 +215,15 @@ void Chip8::OP_Cxkk(){
 
 	registers[Vx] = kk & randByte(randGen);
 }
+void Chip8::OP_Dxyn(){
+	//draw sprite
+}
+void Chip8::OP_Ex9E(){
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	if(keypad[registers[Vx]]) pc += 2;
+}
+
+void Chip8::OP_Ex9E(){
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	if(!keypad[registers[Vx]]) pc += 2;
+}
