@@ -59,3 +59,9 @@ Chip8::Chip8(){
 	std::memset(keypad, 0, sizeof(keypad));
     std::memset(video, 0, sizeof(video));
 }
+
+void Chip8::OP_00E0(){
+	// Clear the display
+	std::memset(video,0,sizeof(video));
+}
+
