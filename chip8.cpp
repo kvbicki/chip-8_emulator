@@ -74,4 +74,10 @@ void Chip8::OP_1nnn(){
 	u_int16_t nnn = opcode & 0x0FFFu;
 	pc = nnn;
 }
+void Chip8::OP_2nnn(){
+	u_int16_t nnn = opcode & 0x0FFFu;
+	stack[sp] = pc;
+	++sp;
+	pc = nnn;
 
+}

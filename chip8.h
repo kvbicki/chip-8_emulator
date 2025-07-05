@@ -31,4 +31,5 @@ public:
 	void OP_00E0();
 	void OP_00EE();
 	void OP_1nnn();
+	void OP_2nnn();
 };
