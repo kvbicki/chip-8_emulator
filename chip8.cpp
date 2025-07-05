@@ -5,6 +5,7 @@
 #include <fstream>
 #include <random>
 const unsigned int FONTSET_SIZE = 80;
+const unsigned int STARTING_ROM = 0x200;
 
 uint8_t fontset[FONTSET_SIZE] =
 {
@@ -27,7 +28,6 @@ uint8_t fontset[FONTSET_SIZE] =
 };
 
 void Chip8::LoadROM(char const* filename){
-	const unsigned int STARTING_ROM = 0x200;
 
 	std::ifstream file(filename,std::ios::binary | std::ios::ate);
 
@@ -46,7 +46,7 @@ void Chip8::LoadROM(char const* filename){
 }
 
 Chip8::Chip8(){
-	pc = 0x200;
+	pc = STARTING_ROM;
 	index = 0;
 	sp = 0;
 	delayTimer = 0;
