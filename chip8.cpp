@@ -79,5 +79,9 @@ void Chip8::OP_2nnn(){
 	stack[sp] = pc;
 	++sp;
 	pc = nnn;
-
+}
+void Chip8::OP_3xkk(){
+	u_int8_t kk = opcode & 0x00FFu;
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	if(registers[Vx] == kk) pc+=2;
 }
