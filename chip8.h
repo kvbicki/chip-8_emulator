@@ -29,4 +29,5 @@ public:
 	std::uniform_int_distribution<uint8_t> randByte;
 
 	void OP_00E0();
+	void OP_00EE();
 };
