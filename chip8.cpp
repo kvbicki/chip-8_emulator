@@ -108,3 +108,8 @@ void Chip8::OP_7xkk(){
 
 	registers[Vx] += kk;
 }
+void Chip8::OP_8xy0(){
+	u_int8_t Vx = (opcode & 0x0F00u) >> 8u;
+	u_int8_t Vy = (opcode & 0x00F0u) >> 4u;
+	registers[Vx] = registers[Vy];
+}
