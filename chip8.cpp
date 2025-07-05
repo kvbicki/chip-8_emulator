@@ -198,3 +198,11 @@ void Chip8::OP_9xy0(){
 		pc += 2;
 	}
 }
+void Chip8::OP_Annn(){
+	uint16_t nnn = (opcode & 0x0FFFu);
+	index = nnn;
+}
+void Chip8::OP_Bnnn(){
+	u_int16_t nnn = (opcode & 0x0FFFu);
+	pc = nnn + registers[0];
+}
